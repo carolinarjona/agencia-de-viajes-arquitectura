@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { ConfirmationData, ConfirmationModalComponent } from './confirmation-modal.component';
+import { AlertData, AlertModalComponent } from './alert-modal/alert-modal.component';
+import { ConfirmationData, ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +19,12 @@ export class ConfirmationService {
       disableClose: true,
     }).afterClosed()
   }
+
+  aceptar(data: AlertData): Observable<any> {
+    return this.dialog.open(AlertModalComponent, {
+      data,
+      disableClose: true,
+    }).afterClosed()
+  }
+
 }

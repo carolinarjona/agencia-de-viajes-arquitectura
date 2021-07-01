@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ConfirmationService } from 'src/app/shared/confirmation-modal/confirmation.service';
+import { ConfirmationService } from 'src/app/shared/modals/confirmation.service';
 import { IdValor } from '../../models/id-valor';
 import { Viaje } from '../models/viaje';
 import { ViajesFilter } from '../models/viajes-filter';

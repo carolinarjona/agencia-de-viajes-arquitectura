@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { formatFecha } from 'src/app/core/utils/dates-helpers';
-import { AlertService } from 'src/app/shared/alert-modal/alert.service';
+import { ConfirmationService } from 'src/app/shared/modals/confirmation.service';
 import { Cliente } from '../models/cliente';
 import { EstadoCivilTipo } from '../models/enums/estado-civil-enum';
 import { EstadoCivil } from '../models/estadoCivil';
@@ -30,7 +30,7 @@ export class ClientesEditComponent implements OnInit {
     fb: FormBuilder,
     private clientesModel: ClientesModelService,
     private estadosCivilesModel: EstadosCivilesModelService,
-    private alertService: AlertService
+    private confirmationService: ConfirmationService
   ) {
     route.params.subscribe((params) => {
       this.id = params.id || '';
@@ -82,7 +82,7 @@ export class ClientesEditComponent implements OnInit {
         cliente.fechaDeNacimiento = new Date(form.value.fechaDeNacimiento);
       }
       this.clientesModel.save(cliente).subscribe(() => {
-        this.alertService.aceptar({
+        this.confirmationService.aceptar({
           contenido: 'Has editado a este cliente',
           aceptar: 'Aceptar'
         })

@@ -13,7 +13,7 @@ export interface AlertData{
 })
 export class AlertModalComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: AlertData) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public alertData: AlertData) { }
 
   ngOnInit(): void {
   }

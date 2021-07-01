@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationService } from '../shared/modals/confirmation.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
+    this.confirmationService.aceptar({
+      contenido: 'Estás en la zona de administradores',
+      aceptar: 'Aceptar'
+    })
   }
 
 }
