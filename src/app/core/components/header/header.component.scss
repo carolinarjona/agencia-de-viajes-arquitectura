@@ -1,0 +1,27 @@
+
+    a {
+        margin: 1rem;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.8rem;
+    }
+    a:hover {
+        color: #9fa8da;
+    }
+    .iconos {
+        font-size: 1.5rem;
+            mat-icon {
+                color: #fff;
+            }
+        }
+
+    mat-toolbar-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+header {
+    z-index: -1;
+}

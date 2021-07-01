@@ -1,0 +1,78 @@
+<div class="table-clientes">
+    
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+        </ng-container>
+        <ng-container matColumnDef="apellidos">
+            <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+            <td mat-cell *matCellDef="let element">{{element.apellidos}}</td>
+        </ng-container>
+        <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef>DNI</th>
+            <td mat-cell *matCellDef="let element">{{element.dni}}</td>
+        </ng-container>
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef>Telefono</th>
+            <td mat-cell *matCellDef="let element">{{element.telefono}}</td>
+        </ng-container>
+        <ng-container matColumnDef="estadoCivilDesc">
+            <th mat-header-cell *matHeaderCellDef>Estado civil</th>
+            <td mat-cell *matCellDef="let element">{{element.estadoCivilDesc}}</td>
+        </ng-container>
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef>editar</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button>
+                    <mat-icon color="primary" (click)="editar.emit(element.id)">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef>Borrar</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button>
+                    <mat-icon color="warn" (click)="borrar.emit(element.id)">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5"
+    showFirstLastButtons></mat-paginator>
+
+</div>
+
+
+<!-- <table>
+    <thead>
+        <tr>
+            <th>Índice</th>
+            <th>Nombre y apellidos</th>
+            <th>DNI</th>
+            <th>Teléfono</th>
+            <th>Estado civil</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let cliente of clientes; let num = index">
+            <tr>
+                <td>{{ num + 1 }}</td>
+                <td>{{ cliente.nombre }} {{cliente.apellidos}}</td>
+                <td>{{ cliente.dni}}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td>{{ cliente.estadoCivilDesc }}</td>
+                <td><i class="far fa-edit" title="Editar cliente" (click)="editar.emit(cliente.id)"></i>
+                </td>
+                <td>
+                    <i class="fas fa-trash-alt" title="Borrar cliente" (click)="borrar.emit(cliente.id)"></i>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table> -->

@@ -1,0 +1,70 @@
+<mat-card class="viajes-card">
+    <mat-card-header>
+        <mat-card-title>Edición y creación de viajes</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="viajesForm" (ngSubmit)="guardarClick(viajesForm)" [ngClass]="{submited: submited}">
+
+            <div fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Nombre: </mat-label>
+                    <input matInput id="" type="text" formControlName="nombre">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="tipoDeViaje">Tipo de viaje: </mat-label>
+                    <mat-select id="tipoDeViaje" formControlName="tipoDeViajeId">
+                        <mat-option *ngFor="let item of tiposDeViaje" [value]="item.id">{{item.valor}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Duración: </mat-label>
+                    <input matInput id="" type="number" formControlName="duracion">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Destino: </mat-label>
+                    <input matInput id="" type="text" formControlName="destino">
+                    <mat-error *ngIf="viajesForm.controls.destino.hasError('invalidDestination')">Restricción
+                        COVID</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Plazas: </mat-label>
+                    <input matInput id="" type="number" formControlName="plazas">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Precio: </mat-label>
+                    <input matInput id="" type="number" formControlName="precio">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Fecha de salida: </mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fecha">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">En oferta: </mat-label>
+                    <mat-select id="enOferta" formControlName="enOferta">
+                        <mat-option value="true">Sí</mat-option>
+                        <mat-option value="false">No</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="estado">Estado: </mat-label>
+                    <mat-select id="estado" formControlName="estado">
+                        <mat-option [value]="1">Nuevo</mat-option>
+                        <mat-option [value]="2">Quedan plazas</mat-option>
+                        <mat-option [value]="3">Lista de espera</mat-option>
+                        <mat-option [value]="4">Para reservar</mat-option>
+                        <mat-option [value]="5">No disponible</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="botones">
+                <button mat-stroked-button color="primary" type="submit"
+                    [disabled]="viajesForm.invalid">Guardar</button>
+                <button mat-stroked-button color="accent" (click)="resetForm()" type="button">Limpiar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

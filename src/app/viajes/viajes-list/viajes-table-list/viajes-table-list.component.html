@@ -1,0 +1,106 @@
+<div class="table-viajes">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef>Nombre</th>
+            <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+        </ng-container>
+        <ng-container matColumnDef="tipoDeViajeId">
+            <th mat-header-cell *matHeaderCellDef>Tipo de viaje</th>
+            <td mat-cell *matCellDef="let element">{{element.tipoDeViajeId | tipoDeViaje}}</td>
+        </ng-container>
+        <ng-container matColumnDef="duracion">
+            <th mat-header-cell *matHeaderCellDef>Duracion</th>
+            <td mat-cell *matCellDef="let element">{{element.duracion}} días</td>
+        </ng-container>
+        <ng-container matColumnDef="destino">
+            <th mat-header-cell *matHeaderCellDef>Destino</th>
+            <td mat-cell *matCellDef="let element">{{element.destino}}</td>
+        </ng-container>
+        <ng-container matColumnDef="plazas">
+            <th mat-header-cell *matHeaderCellDef>Plazas</th>
+            <td mat-cell *matCellDef="let element">{{element.plazas}}</td>
+        </ng-container>
+        <ng-container matColumnDef="precio">
+            <th mat-header-cell *matHeaderCellDef>Precio</th>
+            <td mat-cell *matCellDef="let element">{{element.precio | currency :'': 'symbol':'1.0'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="fechaSalida">
+            <th mat-header-cell *matHeaderCellDef>Fecha de salida</th>
+            <td mat-cell *matCellDef="let element">{{element.fechaSalida | date: 'fullDate' }}</td>
+        </ng-container>
+        <ng-container matColumnDef="enOferta">
+            <th mat-header-cell *matHeaderCellDef>En oferta</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon color="primary" *ngIf="element.enOferta">check</mat-icon>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">{{element.estado}}</td>
+        </ng-container>
+        <ng-container matColumnDef="editar">
+            <th mat-header-cell *matHeaderCellDef>Estado</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button>
+                    <mat-icon color="primary" (click)="editar.emit(element.id)">edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="borrar">
+            <th mat-header-cell *matHeaderCellDef>Borrar</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button>
+                    <mat-icon color="warn" (click)="borrar.emit(element.id)">delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5"
+    showFirstLastButtons></mat-paginator>
+
+</div>
+
+<!-- <table mat-table>
+        <thead>
+            <tr>
+                <th>Índice</th>
+                <th>Nombre</th>
+                <th>Tipo de viaje</th>
+                <th>Duración</th>
+                <th>Destino</th>
+                <th>Plazas</th>
+                <th>Precio</th>
+                <th>Fecha</th>
+                <th>En oferta</th>
+                <th>Estado</th>
+                <th>Editar</th>
+                <th>Borrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let viaje of viajes; let num = index">
+                <tr>
+                    <td>{{ num + 1 }}</td>
+                    <td>{{ viaje.nombre }}</td>
+                    <td>{{ viaje.tipoDeViajeId | tipoDeViaje}}</td>
+                    <td>{{ viaje.duracion }} días</td>
+                    <td>{{ viaje.destino }}</td>
+                    <td>{{ viaje.plazas }}</td>
+                    <td>{{ viaje.precio | currency :'': 'symbol':'1.0'}}</td>
+                    <td>{{viaje.fechaSalida | date: 'fullDate' }}</td>
+                    <td><i class="fas" [ngClass]="viaje.enOferta ? 'fa-check' : 'fa-times'"></i></td>
+                    <td>{{ viaje.estado }}</td>
+                    <td><i class="far fa-edit" title="Editar viaje" (click)="editar.emit(viaje.id)"></i>
+                    </td>
+                    <td>
+                        <i class="fas fa-trash-alt" (click)="borrar.emit(viaje.id)"></i>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table> -->

@@ -1,0 +1,22 @@
+<header>
+    <mat-toolbar color="primary">
+        <!-- <button type="button" (click)="irAViajes()">Ir a viajes</button>
+        <button type="button" (click)="irAcrearViaje()">Crear viaje</button> -->
+        <mat-toolbar-row>
+            <div class="links">
+        <a [routerLink]="['']">Mi agencia de viajes</a>
+        <a [routerLink]="['/viajes']">Ir a viajes</a>
+        <a [routerLink]="['/viajes/crear']">Crear viaje</a>
+        <a [routerLink]="['/clientes']">Ir a clientes</a>
+        <a [routerLink]="['/clientes/crear']">Crear cliente</a>
+    </div>
+    <div class="iconos">
+            <a [routerLink]="['/admin']">Panel de administración</a>
+            <button mat-icon-button>
+                <mat-icon (click)="cerrarSesionClick()" title="Cerrar sesión">logout
+                </mat-icon>
+            </button>
+        </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>

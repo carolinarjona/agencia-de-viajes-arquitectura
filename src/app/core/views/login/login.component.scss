@@ -1,0 +1,32 @@
+h1 {
+    color: #303f9f;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+
+.login-form {
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    padding: 1rem;
+}
+
+label, input {
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    width: 30%;
+    margin: auto;
+    margin-top: 0.5rem;
+}

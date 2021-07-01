@@ -1,0 +1,15 @@
+<mat-card class="viajes-card">
+    <div class="card" *ngFor="let viaje of viajes">
+        <mat-card-header class="card-header">
+            <mat-card-title>{{ viaje.nombre }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <p>Tipo de viaje: {{viaje.tipoDeViajeId}}</p>
+            <p>Duración: {{viaje.duracion}}</p>
+            <p>Destino: {{viaje.destino}}</p>
+            <p>Plazas: {{viaje.plazas}}</p>
+            <p>En oferta: <i class="fas" [ngClass]="viaje.enOferta ? 'fa-check' : 'fa-times'"></i></p>
+            <p>Estado: {{viaje.estado}}</p>
+        </mat-card-content>
+    </div>
+</mat-card>

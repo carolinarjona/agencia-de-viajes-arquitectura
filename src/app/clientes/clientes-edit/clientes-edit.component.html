@@ -1,0 +1,56 @@
+<mat-card class="clientes-card">
+    <mat-card-header>
+        <mat-card-title>Edición y creación de clientes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="clientesForm" (ngSubmit)="guardarClick(clientesForm)" [ngClass]="{submited: submited}">
+
+            <div fxLayout="row wrap" fxLayoutGap="20px">
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Nombre: </mat-label>
+                    <input matInput id="" type="text" formControlName="nombre">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Apellidos: </mat-label>
+                    <input matInput id="" type="text" formControlName="apellidos">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Email: </mat-label>
+                    <input matInput id="" type="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Dirección: </mat-label>
+                    <input matInput id="" type="text" formControlName="direccion">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">DNI: </mat-label>
+                    <input matInput id="" type="text" formControlName="dni">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Teléfono: </mat-label>
+                    <input matInput id="" type="tel" formControlName="telefono">
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="">Fecha de nacimiento:</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fechaDeNacimiento">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 250px">
+                    <mat-label for="estadoCivil">Estado civil: </mat-label>
+                    <mat-select id="estadoCivil" formControlName="estadoCivilId">
+                        <mat-option [value]=""></mat-option>
+                        <mat-option *ngFor="let estadoCivil of estadosCiviles" [value]="estadoCivil.id">
+                            {{estadoCivil.estadoCivilDesc}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="botones">
+                <button mat-stroked-button color="primary" type="submit"
+                    [disabled]="clientesForm.invalid">Guardar</button>
+                <button mat-stroked-button color="accent" (click)="resetForm()" type="button">Limpiar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

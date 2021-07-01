@@ -1,0 +1,19 @@
+.viajes-card {
+    display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 2rem;
+      grid-gap: 2rem;
+      width: 80%;
+      margin: auto;
+    //   .card {
+    //       background-color: #d3e6fc;
+    //       border-radius: 10px;
+    //       padding: 2rem;
+    //   }
+      .fa-check {
+          color: green;
+      }
+      .fa-times {
+          color: red;
+      }
+}

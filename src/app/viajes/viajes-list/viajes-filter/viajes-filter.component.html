@@ -1,0 +1,33 @@
+<mat-card class="filter-card">
+    <mat-card-header>
+        <mat-card-title>Búsqueda de viajes</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="filterForm" (ngSubmit)="searchClick(filterForm)">
+            <div class="flex-row">
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 300px">
+                        <mat-label for="">Nombre:</mat-label>
+                        <input matInput id="" type="text" placeholder="Nombre" formControlName="nombre">
+                    </mat-form-field>
+                    <mat-form-field class="form-label" appearance="outline" fxFlex="1 1 300px">
+                        <mat-label  for="tipoDeViaje">Tipo de viaje:</mat-label>
+                        <mat-select id="tipoDeViaje" formControlName="tipoDeViajeId">
+                            <mat-option [value]=""></mat-option>
+                            <mat-option *ngFor="let item of tiposDeViaje" [value]="item.id">{{item.valor}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="form-label" fxFlex="1 1 300px">
+                        <mat-label for="">Destino:</mat-label>
+                        <input matInput placeholder="Destino" id="" type="text" formControlName="destino">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="botones">
+                <button mat-stroked-button color="primary" type="submit">Buscar</button>
+                <button mat-stroked-button color="accent" (click)="limpiarFiltro()" type="button">Limpiar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

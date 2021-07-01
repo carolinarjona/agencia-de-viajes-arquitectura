@@ -1,0 +1,6 @@
+<div class="main">
+    <app-header (cerrarSesion)="cerrarSesion()" *ngIf="isUserLogged()"></app-header>
+    <router-outlet></router-outlet>
+</div>
+<app-loader *ngIf="loading"></app-loader>
+<footer></footer>

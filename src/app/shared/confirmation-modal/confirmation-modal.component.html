@@ -1,0 +1,14 @@
+<div mat-dialog-title>
+    <h1>
+        {{data?.titulo || 'Confirmacion'}}
+    </h1>
+        <button mat-mini-fab color="warn" mat-dialog-close>X</button>
+</div>
+
+<div mat-dialog-content>
+    <p>{{data?.pregunta || '¿Estás seguro?'}}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="primary">{{data?.opcionNo || 'No'}}</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="accent">{{data?.opcionSi || 'Sí'}}</button>
+</div>
